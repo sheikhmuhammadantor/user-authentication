@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../Providers/AuthProvider'
-import Orders from '../Pages/Orders';
 import { Navigate } from 'react-router-dom';
 
 function PrivateRoute({ children }) {
@@ -11,7 +10,7 @@ function PrivateRoute({ children }) {
         return <div className='mx-auto text-3xl'><span className="loading loading-spinner text-info loading-lg"></span></div>
     }
 
-    if (user.emailVerified) {
+    if (user?.emailVerified) {
         return children
     }
     // if(!result.user.emailVerified) return toast.error("You Must Verified Your Email, Check Your Inbox !", {})
