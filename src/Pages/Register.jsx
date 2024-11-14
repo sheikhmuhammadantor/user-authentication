@@ -26,9 +26,15 @@ function Register() {
     // const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
+    const passwordRegex = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[@#$%?]).{6,}$/;
 
     if (password.length < 6) {
       return setError("Password must be 6 character or longer.")
+    }
+
+    if (!passwordRegex.test(password)) {
+      setError("Password Must have 1 Number, 1 Char, 1 Special Char")
+      return toast.error('Invalid Password !', {})
     }
 
     if (!terms) {
@@ -40,10 +46,9 @@ function Register() {
 
     createUser(email, password)
       .then(result => {
-        console.log(result.user);
+        setError('')
         e.target.reset()
         toast.success('Successfully Register !', {})
-        setError('')
         navigate('/')
       })
       .catch(err => {
