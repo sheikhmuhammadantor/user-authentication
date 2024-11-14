@@ -8,6 +8,7 @@ import Register from "../Pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import Orders from "../Pages/Orders";
 import Profile from "../Pages/Profile";
+import ResetPassword from "../Pages/ResetPassword";
 
 
 function Routes() {
@@ -37,6 +38,10 @@ function Routes() {
         {
           path: "/profile",
           element: <PrivateRoute><Profile></Profile></PrivateRoute>
+        },
+        {
+          path: "/password-reset",
+          element: <ResetPassword></ResetPassword>
         }
       ]
     },

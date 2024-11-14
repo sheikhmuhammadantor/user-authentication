@@ -84,7 +84,7 @@ function Login() {
                 }
               </span>
               <label className="label">
-                <button ><Link to="" className="label-text-alt link link-hover">Forgot password?</Link></button>
+                <button ><Link to="/password-reset" className="label-text-alt link link-hover">Forgot password?</Link></button>
               </label>
             </div>
             <div className="form-control mt-4">
