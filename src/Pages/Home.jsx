@@ -9,7 +9,7 @@ function Home() {
   return (
     <div>
       {
-        user ?
+        user?.emailVerified ?
           <>
             <h1 className='text-7xl font-semibold text-center my-8 py-5 text-cyan-400'>EnJoy</h1>
             <hr />

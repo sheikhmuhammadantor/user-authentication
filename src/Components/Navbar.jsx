@@ -29,7 +29,7 @@ function Navbar() {
         <li><NavLink to="login">LogIn</NavLink></li>
         <li><NavLink to="register">Register</NavLink></li>
         {
-            user &&
+            user?.emailVerified &&
             <>
                 <li><NavLink to="/profile">Profile</NavLink></li>
                 <li><NavLink to="/order">Order</NavLink></li>
@@ -62,8 +62,6 @@ function Navbar() {
                     </div>
                     <Link to="/" className="btn btn-ghost text-xl">UserAuthentication</Link>
                     <span onClick={handelChangeTheme} className="btn btn-sm text-2xl">
-                        {/* <RiSunLine />
-                        <BsFillMoonFill /> */}
                         {
                             (theme === "dark") ? <RiSunLine /> : <IoIosMoon />
                         }
@@ -76,7 +74,7 @@ function Navbar() {
                 </div>
                 <div className="navbar-end">
                     {
-                        user ?
+                        user?.emailVerified ?
                             <>
                                 <span>{user?.email}</span>
                                 <button onClick={handelSignOut} ><Link className="btn ml-4">Sign Out</Link></button>

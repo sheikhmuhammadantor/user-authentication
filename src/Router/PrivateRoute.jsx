@@ -11,10 +11,10 @@ function PrivateRoute({ children }) {
         return <div className='mx-auto text-3xl'><span className="loading loading-spinner text-info loading-lg"></span></div>
     }
 
-    if (user) {
+    if (user.emailVerified) {
         return children
     }
-
+    // if(!result.user.emailVerified) return toast.error("You Must Verified Your Email, Check Your Inbox !", {})
     return (
         <Navigate to="/"></Navigate>
     )

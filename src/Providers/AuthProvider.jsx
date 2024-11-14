@@ -16,6 +16,7 @@ function AuthProvider({ children }) {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password);
     }
+    // console.log(auth)
 
     const signInUser = (email, password) => {
         setLoading(true)
@@ -39,6 +40,7 @@ function AuthProvider({ children }) {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             if (currentUser) {
                 setUser(currentUser)
+                console.log(currentUser);
             } else {
                 setUser(null)
             }

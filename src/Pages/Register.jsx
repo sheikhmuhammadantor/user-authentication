@@ -3,6 +3,8 @@ import { AuthContext } from '../Providers/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { sendEmailVerification } from 'firebase/auth';
+import { auth } from '../Firebase/firebase';
 
 function Register() {
 
@@ -45,11 +47,16 @@ function Register() {
     }
 
     createUser(email, password)
-      .then(result => {
+      .then(() => {
         setError('')
         e.target.reset()
         toast.success('Successfully Register !', {})
-        navigate('/')
+        navigate('/');
+        
+        sendEmailVerification(auth.currentUser)
+          .then(() => {
+            toast.success("Send Email Verification !", {})
+          })
       })
       .catch(err => {
         console.log("ErroR : ", err);

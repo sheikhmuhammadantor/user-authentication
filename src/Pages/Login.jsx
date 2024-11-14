@@ -24,7 +24,8 @@ function Login() {
     }
 
     signInUser(email, password)
-      .then(() => {
+      .then((result) => {
+        if(!result.user.emailVerified) return toast.error("You Must Verified Your Email, Check Your Inbox !", {})
         toast.success('Successfully Sign In !', {})
         e.target.reset()
         navigate('/');
